@@ -1,4 +1,4 @@
-## :집:Bear bnb Team Project ##
+## 🏠:Bear bnb Team Project ##
 
 **About a project**
 
