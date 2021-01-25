@@ -1,0 +1,13 @@
+.Filters {
+  button {
+    margin: 20px 0;
+    margin-right: 14px;
+    padding: 7px 14px;
+    border: 1px solid rgb(206, 206, 206);
+    border-radius: 15px;
+
+    &:hover {
+      border: 1px solid black;
+    }
+  }
+}
