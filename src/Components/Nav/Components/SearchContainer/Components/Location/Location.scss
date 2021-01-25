@@ -1,0 +1,39 @@
+.Location {
+  width: 300px;
+  padding: 15px 30px;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  border-radius: 32px;
+
+  li {
+    display: flex;
+    align-items: center;
+
+    .imgContainer {
+      width: 60px;
+      height: 60px;
+      margin-right: 10px;
+      position: relative;
+      background-color: #f8f0f0b0;
+      border: 1px solid #cccccc;
+      border-radius: 16px;
+
+      img {
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 600;
+      color: #222222;
+    }
+  }
+}

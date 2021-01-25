@@ -1,0 +1,61 @@
+.Guests {
+  width: 394px;
+  height: 244px;
+  margin-top: 10px;
+  padding: 16px 32px;
+  position: absolute;
+  left: 43%;
+  background-color: #fff;
+  border-radius: 32px;
+
+  li {
+    width: 330px;
+    height: 71px;
+    padding: 16px 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgb(235, 235, 235);
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    .guestName {
+      display: flex;
+      flex-direction: column;
+
+      span {
+        &:first-child {
+          font-size: 16px;
+          line-height: 20px;
+          font-weight: 600;
+        }
+
+        &:last-child {
+          font-size: 14px;
+          line-height: 18px;
+          font-weight: 400;
+          color: rgb(113, 113, 113);
+        }
+      }
+    }
+
+    .btnGroup {
+      button {
+        img {
+          width: 22px;
+          height: 22px;
+        }
+      }
+
+      .disabledBtn {
+        cursor: not-allowed;
+      }
+
+      span {
+        margin: 0 10px;
+      }
+    }
+  }
+}

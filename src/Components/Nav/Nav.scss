@@ -1,0 +1,56 @@
+.NavContainer {
+  display: flex;
+
+  .Nav {
+    width: 100%;
+    height: 80px;
+    padding: 0 80px;
+    position: fixed;
+    display: flex;
+    align-items: center;
+  
+    .navList {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+
+      .SearchBar.scrolled {
+        width: 300px;
+        height: 48px;
+        font-size: 14px;
+        font-weight: 700;
+
+        &:hover {
+          cursor: pointer;
+        }
+
+        .searchItem {
+          right: -35px;
+        }
+      }
+    }
+
+    .navList.hide {
+      display: none;
+    }
+  }
+  
+  .Nav.scrolled {
+    background-color: #fff;
+  }
+
+  .searchContainer {
+    position: absolute;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .searchContainer.show {
+    top: 107px;
+  }
+
+  .searchContainer.hide {
+    display: none;
+  }
+}

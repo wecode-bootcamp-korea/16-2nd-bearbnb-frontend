@@ -1,0 +1,35 @@
+.Profile {
+  width: 77px;
+  height: 42px;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  border: 1px solid #dddddd;
+  border-radius: 32px;
+  background-color: #fff;
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  .menuIcon {
+    margin-right: 8px;
+    display: block;
+    width: 16px;
+    height: 16px;
+  }
+
+  .profileIcon {
+    display: block;
+    width: 30px;
+    height: 30px;
+  }
+
+  .profileBox {
+    position: absolute;
+    top: 50px;
+    left: -220%;
+  }
+}

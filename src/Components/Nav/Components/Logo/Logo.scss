@@ -1,0 +1,20 @@
+.Logo {
+  display: flex;
+  align-items: center;
+
+  img {
+    display: block;
+    width: 40px;
+    height: 40px;
+  }
+
+  .whiteLogo {
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .redLogo {
+    font-weight: 700;
+    color: #FF385C;
+  }
+}
