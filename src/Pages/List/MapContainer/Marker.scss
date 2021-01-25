@@ -1,0 +1,31 @@
+@import 'src/Styles/Common.scss';
+
+.wrapper {
+  position: relative;
+
+  .Label {
+    background-color: white;
+    padding: 6px 8px;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 30px;
+    box-shadow: 0 1px 5px 1px rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    font-weight: bolder;
+    z-index: 10;
+    transition: all 200ms;
+
+    &.selected {
+      background-color: $main-color;
+      color: white;
+      transform: scale(1.1);
+      z-index: 100;
+    }
+
+    &:hover {
+      background-color: $main-color;
+      color: white;
+      transform: scale(1.1);
+      z-index: 1000;
+    }
+  }
+}

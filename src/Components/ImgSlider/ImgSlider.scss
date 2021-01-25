@@ -1,0 +1,41 @@
+.sliderImg {
+  height: 200px;
+  border: 1px solid #c3c3c3;
+}
+
+.detailImg {
+  height: 182px;
+  border: 1px solid #c3c3c3;
+}
+.slick-dots li button:before {
+  top: -30px;
+  color: white;
+}
+
+.slick-list {
+  border-radius: 10px;
+}
+
+.slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: white;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  position: absolute;
+  text-align: center;
+  opacity: 1;
+}
+
+.slick-next {
+  right: 20px;
+}
+.slick-prev {
+  left: 0px;
+}
+
+.slick-prev,
+.slick-next {
+  z-index: 1;
+}
