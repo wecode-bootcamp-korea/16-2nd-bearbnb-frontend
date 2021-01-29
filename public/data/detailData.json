@@ -1,0 +1,47 @@
+{
+  "detail_space": [
+    {
+      "id": 77,
+      "name": "초역세권!역에서 걸어서5초 아늑하고 깔끔한 숙소",
+      "address": "서울 동대문구 휘경로 18",
+      "description": "WE7강남은 서울 강남의 중심에 위치한 위코드호텔앤리조트에서 런칭한 라이프스타일 호텔입니다. 완벽한 하루의 시작과 마지막을 위한 최상의 베딩 시스템과 여행자의 라이프스타일을 담은 특별한 객실을 준비하고 있습니다. 총 330개의 호텔 객실에서는 초고속 유/무선 인터넷을 무료로 이용할 수 있습니다. 객실에는 43인치 UHD 텔레비전과 사무용데스크, 금고, 냉장고, 비데 등이 갖춰져 있으며, 1회용 칫솔 및 치약과 욕실용품, 욕실가운 등 비품도 구비되어 있습니다. 부대시설로는 피트니스 센터, 야외 풋 스파 시설, 비지니스 코너, 회의실과 다기능 공간, 코인세탁실, 편의점 등이 있습니다.",
+      "space_image": [
+        "https://files.slack.com/files-pri/TH0U6FBTN-F01L77R7GUX/dayso-spcebokt0pk-unsplash.jpg",
+        "https://files.slack.com/files-pri/TH0U6FBTN-F01L77RHD55/im3rd-media-dn5vihvxloc-unsplash.jpg",
+        "https://files.slack.com/files-pri/TH0U6FBTN-F01LU5YPGAG/sidekix-media-g51f6-wyzyu-unsplash.jpg",
+        "https://files.slack.com/files-pri/TH0U6FBTN-F01LN75A75H/andrea-davis-vowxf7lsan0-unsplash.jpg",
+        "https://files.slack.com/files-pri/TH0U6FBTN-F01LJTZJUUD/filios-sazeides-6qbtnk_grfu-unsplash.jpg",
+        "https://s3.us-east-2.amazonaws.com/bear.bnb/silhouette_photography_of_people_inside_living_room.jpeg",
+        "https://s3.us-east-2.amazonaws.com/bear.bnb/white_and_brown_sofa_chair.jpeg"
+      ],
+      "host": "황영자",
+      "host_profile": "https://s3.us-east-2.amazonaws.com/bear.bnb/gender_image/female.png",
+      "propert_name": "주택",
+      "max_people": 5,
+      "price": "42000.00",
+      "rating": "4.07",
+      "bedroom": [
+        {
+          "name": "침실",
+          "bed_type": ["이층침대"],
+          "bed_quantity": [3]
+        },
+        {
+          "name": "침실",
+          "bed_type": ["더블"],
+          "bed_quantity": [4]
+        }
+      ],
+      "bedroom_quantity": 2,
+      "bed_quantity_sum": 7,
+      "bathroom_quantity": 2,
+      "space_option": ["TV", "난방", "필수 품목", "에어컨"],
+      "space_option_icon": [
+        "https://s3.us-east-2.amazonaws.com/bear.bnb/option icon/heater.png",
+        "https://s3.us-east-2.amazonaws.com/bear.bnb/option icon/Essential.png",
+        "https://s3.us-east-2.amazonaws.com/bear.bnb/option icon/air-conditioner.png",
+        "https://s3.us-east-2.amazonaws.com/bear.bnb/option icon/tv.png"
+      ]
+    }
+  ]
+}

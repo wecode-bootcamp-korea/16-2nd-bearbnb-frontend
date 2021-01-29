@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Nav from './Components/Nav/Nav';
 import Main from './Pages/Main/Main';
 import List from './Pages/List/List';
+import DetailPage from './Pages/DetailPage/DetailPage';
 
 class Routes extends React.Component {
   render() {
@@ -12,7 +13,8 @@ class Routes extends React.Component {
         <Nav />
         <Switch>
           <Route exact path="/" component={Main} />
-          <Route exact path="/List" component={List} />
+          <Route exact path="/list" component={List} />
+          <Route extact path="/list/detail/:id" component={DetailPage} />
         </Switch>
       </Router>
     );
