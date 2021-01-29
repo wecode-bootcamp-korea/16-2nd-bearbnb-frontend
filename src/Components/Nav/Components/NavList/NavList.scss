@@ -1,0 +1,12 @@
+.NavList {
+  display: flex;
+
+  li {
+    padding: 10px 16px;
+    color: #fff;
+
+    &:first-child {
+      border-bottom: 2px solid #fff;
+    }
+  }
+}

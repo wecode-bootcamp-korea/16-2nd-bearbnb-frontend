@@ -1,0 +1,62 @@
+.SearchBar {
+  width: 700px;
+  height: 66px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: 1px solid #dddddd;
+  border-radius: 32px;
+  background-color: #fff;
+
+  .searchItem {
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:last-child {
+      width: 36px;
+      height: 36px;
+      padding: 0;
+      position: relative;
+      right: -25px;
+      border-radius: 50%;
+      background-color: #ff385c;
+
+      button {
+        img {
+          width: 16px;
+          height: 16px;
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+        }
+      }
+    }
+
+    .searchName {
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .searchSubName {
+      font-size: 13px;
+      color: #717171;
+    }
+
+    .selectedDate,
+    .selectedGuest {
+      color: black;
+      font-size: 13px;
+      font-weight: 700;
+    }
+  }
+}
+
+.SearchBar.hide {
+  display: none;
+}
