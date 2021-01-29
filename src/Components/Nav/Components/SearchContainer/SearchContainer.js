@@ -12,31 +12,31 @@ class SearchContainer extends Component {
     this.state = {
       currentTab: 0,
       startDate:
-        this.props.location.pathname === '/'
-          ? null
-          : moment(this.props.location.state.startDate),
+        this.props.location.pathname === '/list'
+          ? moment(this.props.location.state.startDate)
+          : null,
       endDate:
-        this.props.location.pathname === '/'
-          ? null
-          : moment(this.props.location.state.endDate),
+        this.props.location.pathname === '/list'
+          ? moment(this.props.location.state.endDate)
+          : null,
       focusedInput: null,
       adult:
-        this.props.location.pathname === '/'
-          ? 0
-          : this.props.location.state.adult,
+        this.props.location.pathname === '/list'
+          ? this.props.location.state.adult
+          : 0,
       child:
-        this.props.location.pathname === '/'
-          ? 0
-          : this.props.location.state.child,
+        this.props.location.pathname === '/list'
+          ? this.props.location.state.child
+          : 0,
       kid:
-        this.props.location.pathname === '/'
-          ? 0
-          : this.props.location.state.kid,
+        this.props.location.pathname === '/list'
+          ? this.props.location.state.kid
+          : 0,
       searchList: [],
       searchInputValue:
-        this.props.location.pathname === '/'
-          ? ''
-          : this.props.location.state.searchVal,
+        this.props.location.pathname === '/list'
+          ? this.props.location.state.searchVal
+          : '',
     };
   }
 

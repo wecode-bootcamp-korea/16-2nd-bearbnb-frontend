@@ -1,0 +1,37 @@
+{
+  "SPACE_DETAIL": {
+    "id": 1,
+    "title": "C1 New apartment right next to Gangnam Station",
+    "mediaSrc": [
+      "https://a0.muscache.com/im/pictures/122ad1c7-de22-431a-8793-1fbcb5b3ee0e.jpg?im_w=960",
+      "https://a0.muscache.com/im/pictures/4f456d98-ac26-4f04-89c3-5d61623ba128.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/a13322a6-c136-4df0-9a10-348dd91a926c.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/e3258341-b4f3-4988-b958-bec903936a0b.jpg?im_w=720",
+      "https://a0.muscache.com/im/pictures/01aa682d-d2a9-43df-8cfb-258d6ed5761e.jpg?im_w=720"
+    ],
+    "area": "강남구, 서울, 한국",
+    "info": "Sogi님이 호스팅하는 아파트 전체",
+    "info2": "최대 인원 3명 · 침실 1개 · 침대 1개 · 욕실 1개",
+    "info_desc": "강남역 1번 출구 바로 옆 편리하고 깔끔한 숙소 입니다. -전철까지 도보 30초 - 침구로 매번 깨끗이 교체 - 18층 코너창으로 좋은 전망 - 세탁기 + 건조기 - 지하창고에 짐 보관 무료 - 주차는 1시간에 1000원으로 꼭 미리 문의 주셔야합니다 - 정말 좋은 헬스장 도보 3분 (하루 만원)",
+    "type": "집 전체",
+    "type_desc": "아파트 전체를 단독으로 사용하시게 됩니다.",
+    "type_of_bed": "1번 침실",
+    "allowedSpace": "객실",
+    "specifications": {
+      "maxOccupancy": 2,
+      "roomNum": 1,
+      "bed": 1,
+      "bathroom": 1,
+      "elevator": true,
+      "kitchen": true,
+      "wifi": true,
+      "airConditioner": true,
+      "checkIn": "self"
+    },
+    "ratings": 4.92,
+    "price": 78849,
+    "hostName": "Sogi",
+    "hostImg": "https://a0.muscache.com/im/pictures/user/0079e400-67d6-42d7-9962-c07b7d58059b.jpg?im_w=240",
+    "hostDesc": "I am a person who travels around 30 countries and likes to travel. Let's enjoy life as if it's a Travel. :)"
+  }
+}

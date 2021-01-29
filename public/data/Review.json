@@ -1,0 +1,46 @@
+{
+  "REVIEWS": [
+    {
+      "id": 1,
+      "name": "윤서",
+      "img": "https://a0.muscache.com/im/pictures/user/8eee053e-72c4-49a7-b12c-ca234c64ac9a.jpg?im_w=240",
+      "posted": "2021년 2월",
+      "content": "사진도 똑같았고 문 열자마자 좋은 향기가 나서 좋았고 음악도 기분 좋았어요! 뷰가 정말 최고였습니당"
+    },
+    {
+      "id": 2,
+      "name": "인호",
+      "img": "https://a0.muscache.com/im/pictures/user/14790f98-5ff3-4b72-8021-2915da29682f.jpg?im_w=240",
+      "posted": "2021년 2월",
+      "content": "진짜 최강의 뷰... 주변 그어떤 건물보다 높습니다. 바다까지 보이고 야경도 최고에요ㅠㅠ 인테리어도 너무 예쁘고 갖춰진 것들이 많아 부족함 하나 없이 너무 잘 머물다 갑니다!!"
+    },
+    {
+      "id": 3,
+      "name": "민주",
+      "img": "https://a0.muscache.com/im/pictures/user/2eaeabb1-e826-4c38-b4f1-7b3c1df3b89a.jpg?im_w=240",
+      "posted": "2021년 2월",
+      "content": "좋아요 위치도 분위기도!"
+    },
+    {
+      "id": 4,
+      "name": "나라",
+      "img": "https://a0.muscache.com/im/pictures/user/95eead94-6f4f-415c-829c-93559cc0bb47.jpg?im_w=240",
+      "posted": "2021년 1월",
+      "content": "맨날 호텔만 이용하다가 에어비앤비는 처음이였는데 집 근처인데도 여행온 것처럼 편안하고 좋았어요 :) 아침에 일출까지 덤으로 봤네용 ㅎㅎㅎ 편히 잘 쉬고 갑니다 !!"
+    },
+    {
+      "id": 5,
+      "name": "주희",
+      "img": "https://a0.muscache.com/im/pictures/user/bd0d0a4a-2258-420d-8c22-258499df5d4b.jpg?im_w=240",
+      "posted": "2021년 1월",
+      "content": "위치적으로도 접근성이 아주 좋아요~ 주변에 편의시설 잘 되어 있어서 좋았어요~ 집안에서 보는 야경이 너무 멋있고 숙소가 청결하고 모든방면으로 만족합니다 또 다시 방문의사가 있어요 :)"
+    },
+    {
+      "id": 6,
+      "name": "노을",
+      "img": "https://a0.muscache.com/im/pictures/user/4015714c-2d47-457e-89c5-49101098944e.jpg?im_w=240",
+      "posted": "2021년 1월",
+      "content": "넘 잘 쉬다 갑니당 ! 제가 원래 디퓨저 꽃 향을 별로 안 좋아하는 줄 알았는데 좋아하네요 ㅋ 묵는 동안 괜히 킁킁대고 다녔어요 :D 일단 뷰가 최고구요 ! 아울렛이랑 트리플 스트리트에서 놀다가 홈플러스에서 장 보고 택시 타고 오면 딱! 좋은 거리여서 체크인 했는데 하자마자 노래랑 디퓨저 향이 넘 좋아서 반하고 바보같은…"
+    }
+  ]
+}
