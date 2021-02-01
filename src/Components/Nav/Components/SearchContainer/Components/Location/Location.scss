@@ -3,9 +3,11 @@
   padding: 15px 30px;
   margin-top: 10px;
   display: flex;
+  position: absolute;
   flex-direction: column;
   background-color: #fff;
   border-radius: 32px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
 
   li {
     display: flex;

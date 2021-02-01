@@ -1,9 +1,24 @@
 import React, { Component } from 'react';
+import 'react-dates/initialize';
+import { DateRangePicker } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 import './SearchBar.scss';
+import './CalendarCustom.scss';
 
 class SearchBar extends Component {
   render() {
-    const { clickTab, startDate, endDate, adult, child, kid } = this.props;
+    const {
+      clickTab,
+      startDate,
+      endDate,
+      adult,
+      child,
+      kid,
+      onDatesChange,
+      focusedInput,
+      onFocusChange,
+    } = this.props;
+
     return (
       <div className="SearchBar">
         <div onClick={() => clickTab(1)} className="searchItem">
@@ -14,21 +29,27 @@ class SearchBar extends Component {
             placeholder="어디로 여행가세요?"
           />
         </div>
-        <div onClick={() => clickTab(2)} className="searchItem">
-          <span className="searchName">체크인</span>
-          <span className={startDate ? 'selectedDate' : 'searchSubName'}>
-            {startDate !== null
-              ? `${startDate._d.getMonth() + 1}월 ${startDate._d.getDate()}일`
-              : `날짜추가`}
-          </span>
-        </div>
-        <div onClick={() => clickTab(3)} className="searchItem">
-          <span className="searchName">체크아웃</span>
-          <span className={endDate ? 'selectedDate' : 'searchSubName'}>
-            {endDate !== null
-              ? `${endDate._d.getMonth() + 1}월 ${endDate._d.getDate()}일`
-              : `날짜추가`}
-          </span>
+        <div className="searchItem calendar">
+          <div className="calendarLabel">
+            <span className="searchName">체크인</span>
+            <span className="searchName">체크아웃</span>
+          </div>
+          <div>
+            <DateRangePicker
+              startDate={startDate}
+              startDateId="selectedStartDate"
+              endDate={endDate}
+              endDateId="selectedEndDate"
+              onDatesChange={onDatesChange}
+              focusedInput={focusedInput}
+              onFocusChange={onFocusChange}
+              startDatePlaceholderText="날짜추가"
+              endDatePlaceholderText="날짜추가"
+              displayFormat="YYYY MMM D"
+              noBorder
+              small
+            />
+          </div>
         </div>
         <div onClick={() => clickTab(4)} className="searchItem">
           <span className="searchName">인원</span>

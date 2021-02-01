@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import SearchBar from './Components/SearchBar/SearchBar';
 import Location from './Components/Location/Location';
-import CheckInOutDate from './Components/CheckInOutDate/CheckInOutDate';
 import Guests from './Components/Guests/Guests';
 import './SearchContainer.scss';
 
@@ -68,16 +67,6 @@ class SearchContainer extends Component {
 
     const SEARCH_TABS = {
       1: <Location />,
-      2: (
-        <CheckInOutDate
-          startDate={startDate}
-          endDate={endDate}
-          onDatesChange={this.onDatesChange}
-          focusedInput={focusedInput}
-          onFocusChange={this.onFocusChange}
-        />
-      ),
-      3: <CheckInOutDate />,
       4: (
         <Guests
           controllQuantity={this.controllQuantity}
@@ -97,6 +86,9 @@ class SearchContainer extends Component {
           adult={adult}
           child={child}
           kid={kid}
+          onDatesChange={this.onDatesChange}
+          focusedInput={focusedInput}
+          onFocusChange={this.onFocusChange}
         />
         <div>{SEARCH_TABS[currentTab]}</div>
       </section>
