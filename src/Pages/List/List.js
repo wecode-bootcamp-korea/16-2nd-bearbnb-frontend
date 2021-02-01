@@ -2,7 +2,7 @@ import React from 'react';
 import Filters from './Filters/Filters';
 import Availables from './Availables/Availables';
 // import MapContainer from './MapContainer/MapContainer';
-import Navbar from '../../Components/Nav/Navbar';
+// import Navbar from '../../Components/Nav/Navbar';
 import { data } from './Data';
 import './List.scss';
 import GoogleMap from './MapContainer/GoogleMap';
@@ -39,7 +39,7 @@ class List extends React.Component {
     const { searchOptions, roomsData } = this.state;
     return (
       <>
-        <Navbar />
+        {/* <Navbar /> */}
         <div className="List">
           <div className="listWrapper">
             <div className="filter">

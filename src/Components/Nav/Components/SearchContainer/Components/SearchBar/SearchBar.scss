@@ -7,6 +7,7 @@
   border: 1px solid #dddddd;
   border-radius: 32px;
   background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
 
   .searchItem {
     display: flex;
@@ -21,7 +22,7 @@
       height: 36px;
       padding: 0;
       position: relative;
-      right: -25px;
+      right: -10px;
       border-radius: 50%;
       background-color: #ff385c;
 
@@ -53,6 +54,15 @@
       color: black;
       font-size: 13px;
       font-weight: 700;
+    }
+  }
+
+  .searchItem.calendar {
+    width: 289px;
+
+    .calendarLabel {
+      display: flex;
+      justify-content: space-around;
     }
   }
 }

@@ -8,7 +8,8 @@
     position: fixed;
     display: flex;
     align-items: center;
-  
+    justify-content: space-between;
+
     .navList {
       position: absolute;
       left: 50%;
@@ -34,9 +35,16 @@
       display: none;
     }
   }
-  
+
   .Nav.scrolled {
     background-color: #fff;
+  }
+
+  .Nav.fixed {
+    position: fixed;
+    background-color: #fff;
+    z-index: 99999999999999;
+    box-shadow: rgba(0, 0, 0, 0.08) 0px 1px 12px;
   }
 
   .searchContainer {
