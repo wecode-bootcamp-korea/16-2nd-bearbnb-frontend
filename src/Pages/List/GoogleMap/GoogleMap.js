@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import GoogleMapReact from 'google-map-react';
 import Marker from './Marker';
-import { data } from '../Data';
+// import { data } from '../Data';
+// import { data, results } from '../Data';
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const mapStyles = {
-  position: 'fixed',
+  position: 'sticky',
   width: '50vw',
-  height: 'calc(100vh - 80px',
+  height: '100vh',
+  gestureHandling: 'greedy',
 };
 
 class GoogleMap extends Component {
@@ -21,14 +23,16 @@ class GoogleMap extends Component {
 
   static defaultProps = {
     center: {
-      lat: 37.511,
-      lng: 127.0213,
+      // lat: 37.511,
+      // lng: 127.0213,
+      lat: 37.457774,
+      lng: 126.902894,
     },
     zoom: 14,
   };
 
   toggleSelected = id => {
-    this.state.selected === Number(id)
+    this.state.selected === id
       ? this.setState({
           selected: 0,
         })
@@ -39,6 +43,7 @@ class GoogleMap extends Component {
 
   render() {
     const { selected, showDetail } = this.state;
+    const { goToDetail, hoveredId, roomsData } = this.props;
 
     return (
       <div style={mapStyles}>
@@ -46,24 +51,30 @@ class GoogleMap extends Component {
           bootstrapURLKeys={{ key: apiKey }}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
+          options={{
+            gestureHandling: 'greedy',
+            zoomControlOptions: { position: 7 },
+          }}
         >
-          {data.map((marker, idx) => {
-            const price = `￦${Number(marker.price).toLocaleString()}`;
-
+          {roomsData.map((marker, idx) => {
+            const price = `￦${Number(marker.price * 1).toLocaleString()}`;
             return (
               <Marker
                 key={marker.id}
                 id={marker.id}
-                lat={marker.lat}
-                lng={marker.lng}
+                lat={marker.latitude}
+                lng={marker.longitude}
                 price={price}
-                data={data[idx]}
+                data={roomsData[idx]}
                 selected={selected}
                 showDetail={showDetail}
                 toggleSelected={this.toggleSelected}
+                goToDetail={goToDetail}
+                hoveredId={hoveredId}
               />
             );
           })}
+
           <Marker />
         </GoogleMapReact>
       </div>

@@ -6,10 +6,13 @@ import './ImgSlider.scss';
 
 class ImgSlider extends Component {
   render() {
-    const { images, mapDetail = false } = this.props;
+    const { images, mapDetail = false, id, goToDetail, hoveredId } = this.props;
     return (
       <div className="ImgSlider">
-        <Slider dots={true}>
+        <Slider
+          dots={true}
+          arrows={id === hoveredId || mapDetail ? true : false}
+        >
           {images.map((image, idx) => {
             return (
               <img
@@ -17,6 +20,7 @@ class ImgSlider extends Component {
                 key={idx}
                 alt={`이미지${idx}`}
                 src={image}
+                onClick={() => goToDetail(id)}
               />
             );
           })}

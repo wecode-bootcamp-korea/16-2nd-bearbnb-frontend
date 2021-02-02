@@ -11,32 +11,37 @@ class Detail extends Component {
   }
 
   render() {
-    const { data, price } = this.props;
+    const { data, price, goToDetail } = this.props;
     const { mapDetail } = this.state;
     return (
       <>
         {data && (
           <div className="Detail">
             <div className="miniSlider">
-              <ImgSlider images={data.mediaSrc} mapDetail={mapDetail} />
+              <ImgSlider
+                images={data.space_image}
+                mapDetail={mapDetail}
+                goToDetail={goToDetail}
+                id={data.id}
+              />
             </div>
-            <div className="content">
+            <div className="content" onClick={() => goToDetail(data.id)}>
               <div className="bottomWrapper">
                 <p className="rating">
                   <img className="starImg" alt="별점" src="/images/star.png" />
-                  {data.ratings}
+                  {data.rating}
                 </p>
                 <ul className="description">
-                  {data.area ? (
+                  {data.city ? (
                     <>
-                      <li>{data.allowedSpace}</li>
-                      <li>{data.area}</li>
+                      <li>{data.place_type}</li>
+                      <li>{data.city}</li>
                     </>
                   ) : (
-                    <li>{data.allowedSpace}...</li>
+                    <li>{data.place_type}...</li>
                   )}
                 </ul>
-                <p className="title">{data.title}</p>
+                <p className="title">{data.name}</p>
                 <p className="price">
                   {price}
                   <span>/1박</span>
