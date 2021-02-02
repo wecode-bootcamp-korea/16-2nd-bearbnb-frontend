@@ -3,12 +3,14 @@
   align-items: center;
   height: 100vh;
   width: 100%;
-  padding-top: 80px;
+  margin-top: 80px;
+  z-index: 1;
 
   .listWrapper {
     height: 100vh;
     width: 50%;
     padding: 20px 24px;
+    overflow: scroll;
 
     .filter {
       padding: 20px 0;
@@ -55,7 +57,6 @@
       padding: 20px 0;
       width: 100%;
       position: relative;
-      z-index: 1;
     }
   }
 

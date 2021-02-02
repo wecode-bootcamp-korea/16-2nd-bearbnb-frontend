@@ -9,5 +9,12 @@
     &:hover {
       border: 1px solid black;
     }
+
+    &.selected {
+      border: 1px solid black;
+    }
+  }
+  p {
+    z-index: -1;
   }
 }

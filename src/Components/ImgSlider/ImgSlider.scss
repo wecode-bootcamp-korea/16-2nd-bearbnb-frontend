@@ -6,6 +6,7 @@
 .detailImg {
   height: 182px;
   border: 1px solid #c3c3c3;
+  cursor: pointer;
 }
 .slick-dots li button:before {
   top: -30px;
@@ -19,23 +20,21 @@
 .slick-dots li.slick-active button:before {
   opacity: 1;
   color: white;
-}
-
-.slick-prev:before,
-.slick-next:before {
-  position: absolute;
-  text-align: center;
-  opacity: 1;
+  margin: 0;
+  padding: 0;
 }
 
 .slick-next {
-  right: 20px;
+  right: 12px;
 }
+
 .slick-prev {
-  left: 0px;
+  left: 12px;
 }
 
 .slick-prev,
 .slick-next {
   z-index: 1;
+  transition: all 200ms;
+  transform: scale(1.3);
 }

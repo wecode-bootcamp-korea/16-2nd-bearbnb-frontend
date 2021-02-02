@@ -15,15 +15,24 @@ class Marker extends Component {
       data,
       selected,
       toggleSelected,
-      showDetail,
+      goToDetail,
+      hoveredId,
     } = this.props;
 
     return (
-      <div className="wrapper">
-        {selected === id && <Detail data={data} price={price} />}
+      <div
+        className={
+          selected === id || hoveredId === id ? 'wrapper selected' : 'wrapper'
+        }
+      >
+        {selected === id && (
+          <Detail data={data} price={price} goToDetail={goToDetail} />
+        )}
         {price && (
           <button
-            className={selected === id ? 'Label selected' : 'Label'}
+            className={
+              selected === id || hoveredId === id ? 'Label selected' : 'Label'
+            }
             onClick={() => toggleSelected(id)}
           >
             {price}

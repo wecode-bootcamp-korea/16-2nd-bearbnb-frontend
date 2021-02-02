@@ -1,14 +1,8 @@
 import React, { Component } from 'react';
-import { withRouter } from 'react-router-dom';
 import ImgSlider from '../../../Components/ImgSlider/ImgSlider';
-import PaginationBtns from './PaginationBtns/PaginationBtns';
 import './Availables.scss';
 
 class Availables extends Component {
-  goToDetail = id => {
-    this.props.history.push(`/details/${id}`);
-  };
-
   toKRW = price => {
     return price.toLocaleString('ko-KR', {
       style: 'currency',
@@ -17,61 +11,72 @@ class Availables extends Component {
   };
 
   render() {
-    const { searchOptions, rooms } = this.props;
-    const { goToDetail, toKRW } = this;
+    const {
+      roomsData,
+      goToDetail,
+      toggleHoverId,
+      hoveredId,
+      diffDate,
+    } = this.props;
+
+    const { toKRW } = this;
+
     return (
       <div className="Availables">
         <div>
           <ul>
-            {rooms.map(room => {
-              const {
-                maxOccupancy,
-                roomNum,
-                bed,
-                bathroom,
-                elevator,
-                kitchen,
-                wifi,
-                airConditioner,
-              } = room.specifications;
+            {roomsData?.map(room => {
               return (
-                <li className="rooms" key={room.id}>
+                <li
+                  className="rooms"
+                  key={room.id}
+                  onMouseEnter={() => toggleHoverId(room.id)}
+                  onMouseLeave={() => toggleHoverId(room.id)}
+                >
                   <div className="listImgSlider">
-                    <ImgSlider images={room.mediaSrc} />
+                    <ImgSlider
+                      images={room.space_image}
+                      id={room.id}
+                      goToDetail={goToDetail}
+                      hoveredId={hoveredId}
+                    />
                   </div>
-                  <div className="infoBox">
-                    <p className="description">{`${room.area}의 ${room.type} ${room.allowedSpace}`}</p>
-                    <p className="title">{room.title}</p>
+                  <div className="infoBox" onClick={() => goToDetail(room.id)}>
+                    <p className="description">{`${room.city[0]}의 ${room.property_name} ${room.place_type}`}</p>
+                    <p className="title">{room.name}</p>
                     <div className="divider"></div>
                     <div className="specWrapper">
                       <ul>
-                        <li>최대 인원 {maxOccupancy}명</li>
-                        <li>침실 {roomNum}개 </li>
-                        <li>침대 {bed}개 </li>
-                        <li>욕실 {bathroom}개 </li>
+                        <li>최대 인원 {room.max_people}명</li>
+                        <li>침실 {room.bedroom_quantity}개 </li>
+                        <li>침대 {room.bed_quantity}개 </li>
+                        <li>욕실 {room.bathroom_quantity}개 </li>
                       </ul>
                       <ul>
-                        {elevator && <li>엘리베이터</li>}
-                        {kitchen && <li>주방</li>}
-                        {wifi && <li>무선 인터넷</li>}
-                        {airConditioner && <li>에어컨</li>}
+                        {room.space_option.length > 4
+                          ? room.space_option.slice(0, 3).map((option, idx) => {
+                              return <li key={idx}>{option}</li>;
+                            })
+                          : room.space_option.map((option, idx) => {
+                              return <li key={idx}>{option}</li>;
+                            })}
                       </ul>
                     </div>
-                    {room.tag ? (
+                    {room.space_tag.length !== 0 ? (
                       <span className="tag">
                         <img
                           className="tagImage"
                           src="/images/label copy.png"
                           alt="label"
                         />
-                        {room.tag}
+                        {room.space_tag}
                       </span>
                     ) : (
                       <div style={{ height: '22px' }}></div>
                     )}
                     {/* <span>{parseInt((room.price) - (room.price / parseInt(room.discount)))}</span> */}
                     <p className="price">
-                      {toKRW(room.price)}
+                      {toKRW(room.price * 1)}
                       <span>/1박</span>
                     </p>
                     <div className="bottomWrapper">
@@ -81,10 +86,10 @@ class Availables extends Component {
                           alt="별점"
                           src="/images/star.png"
                         />
-                        {room.ratings}
+                        {room.rating}
                       </span>
                       <span className="totalPrice">
-                        총 요금: {toKRW(room.price * searchOptions.dates)}
+                        총 요금: {toKRW(room.price * diffDate)}
                       </span>
                     </div>
                   </div>
@@ -93,15 +98,9 @@ class Availables extends Component {
             })}
           </ul>
         </div>
-
-        <div className="suggetions">RecentlyViewed slider?</div>
-
-        <div className="pageBtns">
-          <PaginationBtns />
-        </div>
       </div>
     );
   }
 }
 
-export default withRouter(Availables);
+export default Availables;

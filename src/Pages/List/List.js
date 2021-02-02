@@ -1,69 +1,155 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Filters from './Filters/Filters';
 import Availables from './Availables/Availables';
-import { data } from './Data';
+// import { data } from './Data';
+import GoogleMap from './GoogleMap/GoogleMap';
+import PaginationBtns from './Availables/PaginationBtns/PaginationBtns';
+import { Footer } from '../../Components/Footer/Footer';
+// import { results } from './Data';
+import { SPACES_API } from '../../config';
 import './List.scss';
-import GoogleMap from './MapContainer/GoogleMap';
 
 class List extends React.Component {
   constructor() {
     super();
     this.state = {
-      searchOptions: {
-        searchArea: '서울시 강남구',
-        datesString: '1월27일 - 1월30일',
-        dates: 3,
-        guestNumber: 1,
-      },
+      searchInfo: {},
       roomsData: [],
+      pageNum: 5,
+      currentPage: 1,
+      hoveredId: 0,
     };
   }
 
   componentDidMount() {
     this.setState({
-      roomsData: data,
+      searchInfo: this.props.location.state,
     });
+    fetch(SPACES_API)
+      .then(res => res.json())
+      .then(res => {
+        this.setState({
+          roomsData: res.results,
+        });
+      });
+    // this.setState({
+    //   roomsData: results,
+    // });
   }
 
+  fetchRooms = num => {
+    fetch(`${SPACES_API}?page=${num}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          roomsData: data.results,
+        });
+      });
+    this.setState({
+      currentPage: num,
+    });
+  };
+
+  addFilter = str => {
+    fetch(`${SPACES_API}?type=${str}`)
+      .then(res => res.json())
+      .then(data => {
+        this.setState({
+          roomsData: data.results,
+        });
+      });
+  };
+
+  goToDetail = id => {
+    this.props.history.push(`list/detail/${id}`);
+  };
+
+  toggleHoverId = id => {
+    this.setState(
+      this.state.hoveredId === id
+        ? {
+            hoveredId: 0,
+          }
+        : { hoveredId: id }
+    );
+  };
+
   render() {
-    const { searchOptions, roomsData } = this.state;
+    const {
+      roomsData,
+      hoveredId,
+      pageNum,
+      currentPage,
+      searchInfo,
+    } = this.state;
+
+    const { fetchRooms, goToDetail, toggleHoverId } = this;
+    const diffDate =
+      Math.ceil(
+        Math.abs(
+          searchInfo.endDate?.getTime() - searchInfo.startDate?.getTime()
+        )
+      ) /
+      (1000 * 3600 * 24);
+    const totalGuest = searchInfo.adult + searchInfo.child + searchInfo.kid;
+    console.log(this.state.searchInfo);
     return (
       <>
-        {/* <Navbar /> */}
-        <div className="List">
-          <div className="listWrapper">
-            <div className="filter">
-              <div className="searchOption">
-                <ul>
-                  <li>
-                    {roomsData.length > 300
-                      ? `${roomsData.length}개 이상의 숙소`
-                      : `숙박 ${roomsData.length}건`}{' '}
-                  </li>
-                  <li>{searchOptions.datesString} </li>
-                  <li> 게스트 {searchOptions.guestNumber}명 </li>
-                </ul>
+        <div>
+          <div className="List">
+            <div className="listWrapper">
+              <div className="filter">
+                <div className="searchOption">
+                  <ul>
+                    <li>
+                      {roomsData?.length > 300
+                        ? `${roomsData?.length}개 이상의 숙소`
+                        : `숙박 ${roomsData?.length}건`}{' '}
+                    </li>
+                    <li>
+                      {`${
+                        1 + searchInfo.startDate?.getMonth()
+                      }월 ${searchInfo.startDate?.getDate()}일 - ${
+                        1 + searchInfo.endDate?.getMonth()
+                      }월 ${searchInfo.endDate?.getDate()}일`}
+                    </li>
+                    <li> 게스트 {totalGuest}명 </li>
+                  </ul>
+                </div>
+                <h1>{searchInfo.searchVal}의 숙소</h1>
+                <Filters />
               </div>
-              <h1>{searchOptions.searchArea}의 숙소</h1>
-              <Filters />
-              <p>예약하기 전에 코로나10 관련 여행 제한 사항을 확인하세요. </p>
-              <a href="https://www.airbnb.co.kr/help/topic/1418/%EC%A0%95%EB%B6%80%EC%9D%98-%EC%97%AC%ED%96%89-%EC%A0%9C%ED%95%9C-%EB%B0%8F-%EC%97%AC%ED%96%89-%EA%B2%BD%EB%B3%B4">
-                자세히 알아보기
-              </a>
+              <div className="content">
+                <Availables
+                  roomsData={roomsData}
+                  goToDetail={goToDetail}
+                  toggleHoverId={toggleHoverId}
+                  hoveredId={hoveredId}
+                  diffDate={diffDate}
+                />
+              </div>
+              <PaginationBtns
+                pageNum={pageNum}
+                fetchRooms={fetchRooms}
+                dataLength={roomsData.length}
+                currentPage={currentPage}
+              />
             </div>
-            <div className="content">
-              <Availables searchOptions={searchOptions} rooms={roomsData} />
-            </div>
-          </div>
 
-          <div className="mapWrapper">
-            {/* <MapContainer /> */}
-            <GoogleMap />
+            <div className="mapWrapper">
+              <GoogleMap
+                goToDetail={goToDetail}
+                hoveredId={hoveredId}
+                roomsData={roomsData}
+              />
+            </div>
           </div>
+          <Footer />
         </div>
       </>
     );
   }
 }
 
-export default List;
+export default withRouter(List);

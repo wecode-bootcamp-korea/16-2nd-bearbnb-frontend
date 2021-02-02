@@ -3,6 +3,16 @@
 .wrapper {
   position: relative;
 
+  &.selected {
+    transform: scale(1.1);
+    z-index: 100;
+  }
+
+  &:hover {
+    transform: scale(1.1);
+    z-index: 1000;
+  }
+
   .Label {
     background-color: white;
     padding: 6px 8px;
