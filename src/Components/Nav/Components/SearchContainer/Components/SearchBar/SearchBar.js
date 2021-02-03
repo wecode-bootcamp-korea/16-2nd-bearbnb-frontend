@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { withRouter } from 'react-router-dom';
+import moment from 'moment';
 import 'react-dates/initialize';
 import { DateRangePicker } from 'react-dates';
 import 'react-dates/lib/css/_datepicker.css';
@@ -17,6 +19,9 @@ class SearchBar extends Component {
       onDatesChange,
       focusedInput,
       onFocusChange,
+      inputValHandler,
+      searchInputValue,
+      goToList,
     } = this.props;
 
     return (
@@ -24,6 +29,8 @@ class SearchBar extends Component {
         <div onClick={() => clickTab(1)} className="searchItem">
           <span className="searchName">위치</span>
           <input
+            onChange={inputValHandler}
+            value={searchInputValue}
             className="searchSubName"
             type="text"
             placeholder="어디로 여행가세요?"
@@ -36,6 +43,8 @@ class SearchBar extends Component {
           </div>
           <div>
             <DateRangePicker
+              initialStartDate={startDate}
+              initialEndDate={endDate}
               startDate={startDate}
               startDateId="selectedStartDate"
               endDate={endDate}
@@ -66,7 +75,7 @@ class SearchBar extends Component {
           </span>
         </div>
         <div className="searchItem">
-          <button type="button">
+          <button onClick={goToList} type="button">
             <img alt="searchBtn" src="/images/Nav/search.png" />
           </button>
         </div>
@@ -75,4 +84,4 @@ class SearchBar extends Component {
   }
 }
 
-export default SearchBar;
+export default withRouter(SearchBar);

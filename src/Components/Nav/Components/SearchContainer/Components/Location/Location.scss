@@ -12,6 +12,15 @@
   li {
     display: flex;
     align-items: center;
+    margin-bottom: 15px;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
 
     .imgContainer {
       width: 60px;
