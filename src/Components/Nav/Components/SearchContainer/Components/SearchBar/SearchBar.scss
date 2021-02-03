@@ -13,6 +13,10 @@
     display: flex;
     flex-direction: column;
 
+    &:first-child {
+      padding-left: 15px;
+    }
+
     &:hover {
       cursor: pointer;
     }
