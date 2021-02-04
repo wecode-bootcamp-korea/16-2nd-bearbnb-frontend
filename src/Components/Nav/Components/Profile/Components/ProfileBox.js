@@ -1,14 +1,15 @@
-import React from 'react';
 import styled from 'styled-components';
 
-const ProfileBox = () => {
+function ProfileBox({ showLoginModal }) {
   return (
-    <List>
-      <ListItem>로그인</ListItem>
-      <ListItem>회원가입</ListItem>
-    </List>
+    <>
+      <List>
+        <ListItem onClick={() => showLoginModal('SignIn')}>로그인</ListItem>
+        <ListItem onClick={() => showLoginModal('SignPage')}>회원가입</ListItem>
+      </List>
+    </>
   );
-};
+}
 
 export default ProfileBox;
 

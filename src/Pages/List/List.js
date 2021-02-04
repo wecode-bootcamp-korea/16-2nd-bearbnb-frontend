@@ -1,8 +1,6 @@
 import React from 'react';
 import Filters from './Filters/Filters';
 import Availables from './Availables/Availables';
-// import MapContainer from './MapContainer/MapContainer';
-// import Navbar from '../../Components/Nav/Navbar';
 import { data } from './Data';
 import './List.scss';
 import GoogleMap from './MapContainer/GoogleMap';
@@ -25,14 +23,6 @@ class List extends React.Component {
     this.setState({
       roomsData: data,
     });
-    // fetch(address)
-    //  .then(res => res.json())
-    //  .then(res => {
-    //    this.setState({
-    //     searchOptions: res.?,
-    //     roomsData: res.spaces,
-    //    });
-    //  });
   }
 
   render() {

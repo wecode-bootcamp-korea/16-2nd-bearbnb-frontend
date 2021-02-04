@@ -15,9 +15,9 @@ class Profile extends Component {
       isShow: !this.state.isShow,
     });
   };
-
   render() {
     const { isShow } = this.state;
+    const { showLoginModal } = this.props;
     return (
       <div onClick={this.showProfileBox} className="Profile">
         <img className="menuIcon" alt="menu" src="/images/Nav/menu.png" />
@@ -26,7 +26,9 @@ class Profile extends Component {
           alt="profile"
           src="/images/Nav/profile-user.png"
         />
-        <div className="profileBox">{isShow && <ProfileBox />}</div>
+        <div className="profileBox">
+          {isShow && <ProfileBox showLoginModal={showLoginModal} />}
+        </div>
       </div>
     );
   }
