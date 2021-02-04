@@ -1,0 +1,44 @@
+.Footer {
+  width: 100%;
+  padding: 48px 80px;
+  background-color: #f7f7f7;
+
+  div {
+    display: flex;
+    justify-content: space-around;
+
+    .listContainer {
+      margin-bottom: 48px;
+      display: flex;
+      flex-direction: column;
+      color: #222222;
+
+      .listItem {
+        font-size: 14px;
+        margin-bottom: 16px;
+
+        &:first-child {
+          font-size: 12px;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  .footerContainer {
+    padding: 24px 0;
+    display: flex;
+    font-size: 14px;
+    justify-content: space-between;
+    border-top: 1px solid #dddddd;
+
+    div {
+      img {
+        display: block;
+        width: 18px;
+        height: 18px;
+        margin-right: 24px;
+      }
+    }
+  }
+}
