@@ -9,6 +9,7 @@ function Button({
   buttonPage,
   checkLoginValidation,
   checkSignupValidation,
+  clickHandler,
 }) {
   return (
     <ButtonContainer
@@ -18,6 +19,8 @@ function Button({
           ? checkLoginValidation
           : type === 'signUp'
           ? checkSignupValidation
+          : type === 'kakao'
+          ? clickHandler
           : () => clickTab(buttonPage)
       }
     >
