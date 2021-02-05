@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
 import Button from './Button';
 import Line from './Line';
@@ -7,10 +7,38 @@ import Input from './Input';
 import styled from 'styled-components';
 import { signInData } from '../Data/ModalData';
 import { SIGNIN_API } from '../../../config';
+import { SOCIAL_API } from '../../../config';
+
+const { Kakao } = window;
+
+// const kakaoApi = process.env.REACT_APP_KAKAO_API;
 
 function SignIn({ showpwView, pwView, clickTab, closeLoginModal }) {
   const history = useHistory();
   const [loginValue, setLoginValue] = useState({ email: '', password: '' });
+  // useEffect(() => {
+  //   Kakao.init(kakaoApi);
+  // }, []);
+
+  const clickHandler = () => {
+    Kakao.Auth.login({
+      success: function (authObj) {
+        fetch(`${SOCIAL_API}`, {
+          method: 'POST',
+          headers: {
+            Authorization: authObj.access_token,
+          },
+        })
+          .then(res => res.json())
+          .then(res => {
+            localStorage.setItem('kakao_token', res.token);
+          });
+      },
+      fail: function (err) {
+        alert(JSON.stringify(err));
+      },
+    });
+  };
 
   const handleLoginInputValue = e => {
     const { id, value } = e.target;
@@ -59,7 +87,11 @@ function SignIn({ showpwView, pwView, clickTab, closeLoginModal }) {
         >
           <div className="socialWrapper">
             <div className="kakaoLogin">
-              <Button type="kakao" content={'카카오 계정으로 로그인'} />
+              <Button
+                clickHandler={clickHandler}
+                type="kakao"
+                content={'카카오 계정으로 로그인'}
+              />
             </div>
             <Button
               signDataImg={signInData?.googleImg}
