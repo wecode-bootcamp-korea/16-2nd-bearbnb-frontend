@@ -96,57 +96,67 @@ class List extends React.Component {
     console.log(this.state.searchInfo);
     return (
       <>
-        <div>
-          <div className="List">
-            <div className="listWrapper">
-              <div className="filter">
-                <div className="searchOption">
-                  <ul>
-                    <li>
-                      {roomsData?.length > 300
-                        ? `${roomsData?.length}개 이상의 숙소`
-                        : `숙박 ${roomsData?.length}건`}{' '}
-                    </li>
-                    <li>
-                      {`${
-                        1 + searchInfo.startDate?.getMonth()
-                      }월 ${searchInfo.startDate?.getDate()}일 - ${
-                        1 + searchInfo.endDate?.getMonth()
-                      }월 ${searchInfo.endDate?.getDate()}일`}
-                    </li>
-                    <li> 게스트 {totalGuest}명 </li>
-                  </ul>
+        {this.state.roomsData.length > 0 ? (
+          <div>
+            <div className="List">
+              <div className="listWrapper">
+                <div className="filter">
+                  <div className="searchOption">
+                    <ul>
+                      <li>
+                        {roomsData?.length > 300
+                          ? `${roomsData?.length}개 이상의 숙소`
+                          : `숙박 ${roomsData?.length}건`}{' '}
+                      </li>
+                      <li>
+                        {`${
+                          1 + searchInfo.startDate?.getMonth()
+                        }월 ${searchInfo.startDate?.getDate()}일 - ${
+                          1 + searchInfo.endDate?.getMonth()
+                        }월 ${searchInfo.endDate?.getDate()}일`}
+                      </li>
+                      <li> 게스트 {totalGuest}명 </li>
+                    </ul>
+                  </div>
+                  <h1>{searchInfo.searchVal}의 숙소</h1>
+                  <Filters />
                 </div>
-                <h1>{searchInfo.searchVal}의 숙소</h1>
-                <Filters />
-              </div>
-              <div className="content">
-                <Availables
-                  roomsData={roomsData}
-                  goToDetail={goToDetail}
-                  toggleHoverId={toggleHoverId}
-                  hoveredId={hoveredId}
-                  diffDate={diffDate}
+                <div className="content">
+                  <Availables
+                    roomsData={roomsData}
+                    goToDetail={goToDetail}
+                    toggleHoverId={toggleHoverId}
+                    hoveredId={hoveredId}
+                    diffDate={diffDate}
+                  />
+                </div>
+                <PaginationBtns
+                  pageNum={pageNum}
+                  fetchRooms={fetchRooms}
+                  dataLength={roomsData.length}
+                  currentPage={currentPage}
                 />
               </div>
-              <PaginationBtns
-                pageNum={pageNum}
-                fetchRooms={fetchRooms}
-                dataLength={roomsData.length}
-                currentPage={currentPage}
-              />
-            </div>
 
-            <div className="mapWrapper">
-              <GoogleMap
-                goToDetail={goToDetail}
-                hoveredId={hoveredId}
-                roomsData={roomsData}
-              />
+              <div className="mapWrapper">
+                <GoogleMap
+                  goToDetail={goToDetail}
+                  hoveredId={hoveredId}
+                  roomsData={roomsData}
+                />
+              </div>
             </div>
+            <Footer />
           </div>
-          <Footer />
-        </div>
+        ) : (
+          <div className="loadingContainer">
+            <img
+              className="loadingImg"
+              alt="bearbnb"
+              src="/images/Nav/redbear.png"
+            />
+          </div>
+        )}
       </>
     );
   }

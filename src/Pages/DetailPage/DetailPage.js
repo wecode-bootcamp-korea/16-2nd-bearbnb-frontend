@@ -30,23 +30,33 @@ const DetailPage = props => {
   return (
     <>
       {/* <MenuTab /> */}
-      <Article>
-        <div>
-          <Header data={data} />
-          <PhotoContainer data={data} />
-          <ContentWrapper>
-            <Content>
-              <HostInfo data={data} />
-              <BedType data={data} />
-              <Facility data={data} />
-            </Content>
-            <ReservationBox data={data} />
-          </ContentWrapper>
-          <ReviewList data={data} />
-          <HostInfoDetail data={data} />
-          <Location data={data} />
+      {data ? (
+        <Article>
+          <div>
+            <Header data={data} />
+            <PhotoContainer data={data} />
+            <ContentWrapper>
+              <Content>
+                <HostInfo data={data} />
+                <BedType data={data} />
+                <Facility data={data} />
+              </Content>
+              <ReservationBox data={data} />
+            </ContentWrapper>
+            <ReviewList data={data} />
+            <HostInfoDetail data={data} />
+            <Location data={data} />
+          </div>
+        </Article>
+      ) : (
+        <div className="loadingContainer">
+          <img
+            className="loadingImg"
+            alt="bearbnb"
+            src="/images/Nav/redbear.png"
+          />
         </div>
-      </Article>
+      )}
       <Footer />
     </>
   );
