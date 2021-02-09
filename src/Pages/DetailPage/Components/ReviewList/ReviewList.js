@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { ReviewModal } from './Components/ReviewModal';
 
 export const ReviewList = ({ data }) => {
   const [reviewData, setReviewDate] = useState([]);
+  const [moreReviews, setMoreReviews] = useState(false);
 
   useEffect(() => {
     fetchData();
@@ -14,11 +16,21 @@ export const ReviewList = ({ data }) => {
     setReviewDate(data.REVIEWS);
   };
 
+  const showReviewModal = () => {
+    setMoreReviews(prev => !prev);
+  };
+
+  const closeModal = () => {
+    setMoreReviews(false);
+  };
+
   return (
     <Section>
       <Header>
         <img alt="star" src="/images/Detail/star.png" />
-        <h3>{data.rating}점(후기 6개)</h3>
+        <h3>
+          {data.rating}점(후기 {reviewData.length}개)
+        </h3>
       </Header>
       <AverageRate>
         {rateAvg.map(rate => {
@@ -34,21 +46,33 @@ export const ReviewList = ({ data }) => {
         })}
       </AverageRate>
       <ReviewContent>
-        {reviewData.map(review => {
+        {reviewData.map((review, idx) => {
           return (
-            <ReviewItem>
-              <div>
-                <img alt={review.name} src={review.img} />
+            idx <= 5 && (
+              <ReviewItem>
                 <div>
-                  <span>{review.name}</span>
-                  <span>{review.posted}</span>
+                  <img alt={review.name} src={review.img} />
+                  <div>
+                    <span>{review.name}</span>
+                    <span>{review.posted}</span>
+                  </div>
                 </div>
-              </div>
-              {review.content}
-            </ReviewItem>
+                {review.content}
+              </ReviewItem>
+            )
           );
         })}
       </ReviewContent>
+      <Button onClick={showReviewModal}>
+        후기 {reviewData.length}개 모두보기
+      </Button>
+      {moreReviews && (
+        <ReviewModal
+          data={data}
+          reviewData={reviewData}
+          closeModal={closeModal}
+        />
+      )}
     </Section>
   );
 };
@@ -153,6 +177,22 @@ const Line = styled.div`
   background-color: #222222;
   border-radius: 2px;
   margin-right: 6px;
+`;
+
+const Button = styled.button`
+  width: 18%;
+  display: inline-block;
+  padding: 13px 23px;
+  color: #222222;
+  border: 1px solid #222222;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+
+  &:hover {
+    cursor: pointer;
+    background-color: rgb(247, 247, 247);
+  }
 `;
 
 const rateAvg = [

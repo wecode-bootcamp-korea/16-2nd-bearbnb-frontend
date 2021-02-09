@@ -9,7 +9,7 @@ import Facility from './Components/Facility';
 import Location from './Components/Location';
 import { ReservationBox } from './Components/ReservationBox/ReservationBox';
 import { HostInfoDetail } from './Components/HostInfoDetail';
-import { ReviewList } from './Components/ReviewList';
+import { ReviewList } from './Components/ReviewList/ReviewList';
 // import { MenuTab } from './Components/MenuTab/MenuTab';
 import { Footer } from '../../Components/Footer/Footer';
 import { SERVER_API } from '../../config';
