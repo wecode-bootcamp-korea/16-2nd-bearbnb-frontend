@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import './Guests.scss';
 
-const Guests = props => {
+const Guests = ({ controllQuantity, guestQty }) => {
   return (
     <ul className="Guests">
       {GUEST_LIST.map(guest => {
@@ -14,26 +14,23 @@ const Guests = props => {
             </div>
             <div className="btnGroup">
               <button
-                onClick={evt => props.controllQuantity(evt, id)}
+                onClick={evt => controllQuantity(evt, id)}
                 type="button"
-                disabled={props[id] === 0 && true}
-                className={props[id] === 0 ? 'disabledBtn' : ''}
+                disabled={guestQty[id] === 0 && true}
+                className={guestQty[id] === 0 ? 'disabledBtn' : ''}
               >
                 <img
                   alt="minus"
                   name="minus"
                   src={
-                    props[id] === 0
+                    guestQty[id] === 0
                       ? '/images/Nav/disabledBtn.png'
                       : '/images/Nav/minus.png'
                   }
                 />
               </button>
-              <span>{props[id]}</span>
-              <button
-                onClick={evt => props.controllQuantity(evt, id)}
-                type="button"
-              >
+              <span>{guestQty[id]}</span>
+              <button onClick={evt => controllQuantity(evt, id)} type="button">
                 <img alt="add" name="plus" src="/images/Nav/add.png" />
               </button>
             </div>
